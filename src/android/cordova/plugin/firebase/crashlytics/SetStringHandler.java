@@ -1,4 +1,4 @@
-package uk.co.reallysmall.cordova.plugin.firebase.crashlytics;
+package cordova.plugin.firebase.crashlytics;
 
 import android.util.Log;
 
@@ -8,16 +8,17 @@ import org.apache.cordova.CordovaInterface;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-public class SetFloatHandler implements ActionHandler {
+public class SetStringHandler implements ActionHandler {
     @Override
     public boolean handle(JSONArray args, CordovaInterface cordova) {
+
         try {
             final String key = args.getString(0);
-            final Double value = args.getDouble(1);
+            final String value = args.getString(1);
 
-            Crashlytics.setFloat(key, value.floatValue());
+            Crashlytics.setString(key, value);
         } catch (JSONException e) {
-            Log.e(FirebaseCrashlyticsPlugin.TAG, "Error setting float", e);
+            Log.e(FirebaseCrashlyticsPlugin.TAG, "Error setting string", e);
         }
         return true;
     }
