@@ -5,9 +5,7 @@
 @implementation FirebaseCrashlyticsPlugin
 
 - (void)pluginInitialize {
-    if(![FIRApp defaultApp]) {
-        [FIRApp configure];
-    }
+
 }
 
 - (void)crash:(CDVInvokedUrlCommand *)command {

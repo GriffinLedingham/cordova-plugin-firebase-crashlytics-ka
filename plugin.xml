@@ -13,11 +13,12 @@
       <engine name="cordova-ios" version=">=4.5.4"/>
   </engines>
 
-  <platform name="browser">
-    <js-module src="www/browser/crashlytics.js" name="FirebaseCrashlytics">
-      <clobbers target="FirebaseCrashlytics"/>
-    </js-module>
-  </platform>
+  <preference name="FABRIC_API_KEY" />
+  <preference name="FABRIC_API_SECRET" />
+
+  <hook type="after_plugin_install" src="hooks/after_plugin_add.js" />
+  <hook type="after_platform_add" src="hooks/after_plugin_add.js" />
+  <hook type="before_plugin_uninstall" src="hooks/before_plugin_rm.js" />
 
   <platform name="android">
     <js-module src="www/crashlytics.js" name="FirebaseCrashlytics">
@@ -63,11 +64,29 @@
       </feature>
     </config-file>
 
+    <config-file target="*-Info.plist" parent="Fabric">
+      <dict>
+        <key>APIKey</key>
+        <string>$FABRIC_API_KEY</string>
+        <key>Kits</key>
+        <array>
+            <dict>
+                <key>KitInfo</key>
+                <dict/>
+                <key>KitName</key>
+                <string>Crashlytics</string>
+            </dict>
+        </array>
+      </dict>
+    </config-file>
+
     <framework src="Fabric" type="podspec" spec="~> 1.7.5"/>
     <framework src="Crashlytics" type="podspec" spec="~> 3.10.1"/>
 
     <header-file src="src/ios/FirebaseCrashlyticsPlugin.h"/>
     <source-file src="src/ios/FirebaseCrashlyticsPlugin.m"/>
+    <header-file src="src/ios/AppDelegate+FirebaseCrashlyticsPlugin.h"/>
+    <source-file src="src/ios/AppDelegate+FirebaseCrashlyticsPlugin.m"/>
   </platform>
 
 </plugin>
