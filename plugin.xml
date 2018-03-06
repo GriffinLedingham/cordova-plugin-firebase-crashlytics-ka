@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-firebase-crashlytics-ka" version="1.0.2">
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-firebase-crashlytics-ka" version="1.0.3">
   <name>Cordova Firebase Crashlytics Plugin</name>
   <description>Google Firebase Crashlytics</description>
   <license>MIT</license>
@@ -21,6 +21,9 @@
   <hook type="before_plugin_uninstall" src="hooks/before_plugin_rm.js" />
 
   <platform name="android">
+
+    <preference name="ANDROID_API_VERSION" default="11.8.0"/>
+
     <js-module src="www/crashlytics.js" name="FirebaseCrashlytics">
       <clobbers target="FirebaseCrashlytics"/>
     </js-module>
@@ -36,7 +39,7 @@
 
     <framework src="firebase-crashlytics.gradle" custom="true" type="gradleReference"/>
 
-    <framework src="com.google.firebase:firebase-core:11.8.0" />
+    <framework src="com.google.firebase:firebase-core:$ANDROID_API_VERSION" />
 
     <source-file src="src/android/cordova/plugin/firebase/crashlytics/FirebaseCrashlyticsPlugin.java" target-dir="src/cordova/plugin/firebase/crashlytics"/>
     <source-file src="src/android/cordova/plugin/firebase/crashlytics/ActionHandler.java" target-dir="src/cordova/plugin/firebase/crashlytics"/>
