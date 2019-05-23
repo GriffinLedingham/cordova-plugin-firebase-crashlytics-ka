@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-firebase-crashlytics-ka",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "cordova": {
     "id": "cordova-plugin-firebase-crashlytics-ka",
     "platforms": [
@@ -28,6 +28,8 @@
   "devDependencies": {
     "grunt": "^1.0.2",
     "grunt-contrib-jshint": "^1.1.0",
-    "jshint-junit-reporter": "^0.2.3"
+    "jshint-junit-reporter": "^0.2.3",
+    "cordova-lib": "^9.0.1",
+    "xcode": "^2.0.0"
   }
 }
