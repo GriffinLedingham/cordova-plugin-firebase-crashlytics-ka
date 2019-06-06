@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-firebase-crashlytics-ka",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "cordova": {
     "id": "cordova-plugin-firebase-crashlytics-ka",
     "platforms": [
