@@ -32,7 +32,8 @@ module.exports = {
         //var script = '"' + '\\"${PODS_ROOT}/Fabric/run\\" ' + pluginConfig.apiKey + " " + pluginConfig.apiSecret + '"';
 
         //Run script with DSYM upload
-        var script = '"' + '\\"${PODS_ROOT}/Fabric/run\\" ' + pluginConfig.apiKey + " " + pluginConfig.apiSecret + '\\\n\\"${PODS_ROOT}/Fabric/upload-symbols\\" -gsp \\"${PROJECT_DIR}/${PROJECT_NAME}/Resources/GoogleService-Info.plist\\" -p ios \\"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\\" ' + '"';
+        //var script = '"' + '\\"${PODS_ROOT}/Fabric/run\\" ' + pluginConfig.apiKey + " " + pluginConfig.apiSecret + '\\\n\\"${PODS_ROOT}/Fabric/upload-symbols\\" -gsp \\"${PROJECT_DIR}/${PROJECT_NAME}/Resources/GoogleService-Info.plist\\" -p ios \\"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\\" ' + '"';
+        var script = '"' + '\\"${PODS_ROOT}/Fabric/run\\" ' + pluginConfig.apiKey + " " + pluginConfig.apiSecret + '"';
 
         // Generate a unique ID for our new build phase.
         var id = xcodeProject.generateUuid();
